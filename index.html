@@ -6,47 +6,255 @@
   <title>Pomodoro Dashboard</title>
   <meta http-equiv="refresh" content="15" />
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: sans-serif;
-      background-color: #1e1e1e;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e1e2e 0%, #2d2d3d 100%);
       color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
-      max-width: 600px;
-      margin: auto;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      background: linear-gradient(45deg, #00ffcc, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 255, 204, 0.1);
+    }
+
+    .info-card h3 {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-card .value {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #00ffcc;
+    }
+
+    .session-info {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
+      border: 1px solid rgba(0, 255, 204, 0.2);
+    }
+
+    .session-info .value {
+      font-size: 2rem;
+      background: linear-gradient(45deg, #00ffcc, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .time-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .time-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .time-card h4 {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .time-card .time-value {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    #progress-container {
+      margin-top: 30px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .progress-label {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .progress-percent {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #00ffcc;
     }
 
     #progress-bar {
       width: 100%;
-      background-color: #333;
-      height: 30px;
-      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      height: 12px;
+      border-radius: 20px;
       overflow: hidden;
-      margin-top: 10px;
+      position: relative;
     }
 
     #progress {
       height: 100%;
       width: 0%;
-      background-color: #00ffcc;
-      transition: width 0.5s ease;
+      background: linear-gradient(90deg, #00ffcc, #00d4ff);
+      border-radius: 20px;
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    #session {
-      font-weight: bold;
-      font-size: 1.5rem;
+    #progress::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .status-idle {
+      opacity: 0.6;
+    }
+
+    .status-idle .info-card,
+    .status-idle .time-card {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .time-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>🧠 Pomodoro Dashboard</h1>
-  <p>Session: <span id="session">--</span></p>
-  <p>Time Left: <span id="time-left">--</span></p>
-  <p>Start: <span id="start-time">--</span> - End: <span id="end-time">--</span> - Duration: <span
-      id="duration">--</span></p>
-  <p>Progress: <span id="percent-complete">--%</span></p>
-  <div id="progress-bar">
-    <div id="progress"></div>
+  <div class="container">
+    <h1>🧠 Pomodoro Dashboard</h1>
+
+    <div class="info-grid">
+      <div class="info-card session-info">
+        <h3>Current Session</h3>
+        <div class="value" id="session">--</div>
+      </div>
+
+      <div class="info-card">
+        <h3>Time Remaining</h3>
+        <div class="value" id="time-left">--</div>
+      </div>
+    </div>
+
+    <div class="time-row">
+      <div class="time-card">
+        <h4>Start</h4>
+        <div class="time-value" id="start-time">--</div>
+      </div>
+      <div class="time-card">
+        <h4>End</h4>
+        <div class="time-value" id="end-time">--</div>
+      </div>
+      <div class="time-card">
+        <h4>Duration</h4>
+        <div class="time-value" id="duration">--</div>
+      </div>
+    </div>
+
+    <div id="progress-container">
+      <div class="progress-header">
+        <span class="progress-label">Progress</span>
+        <span class="progress-percent" id="percent-complete">--%</span>
+      </div>
+      <div id="progress-bar">
+        <div id="progress"></div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -63,6 +271,7 @@
 
         if (session === 'idle' || !data.start_time || !data.end_time)
         {
+          document.body.classList.add('status-idle');
           document.getElementById('session').textContent = 'Idle / Not Working';
           document.getElementById('time-left').textContent = '--';
           document.getElementById('start-time').textContent = '--';
@@ -72,6 +281,8 @@
           document.getElementById('progress').style.width = '0%';
           return;
         }
+
+        document.body.classList.remove('status-idle');
 
         const start = data.start_time;
         const end = data.end_time;
