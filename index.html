@@ -725,12 +725,41 @@
         // Format times in user's timezone
         const startTime = formatTimeInUserTimezone(startDate.toISOString());
         const endTime = formatTimeInUserTimezone(endDate.toISOString());
-        const durationMinutes = Math.floor(total / 60);
+
+        // Format duration in human-readable format (h m s)
+        const durationHours = Math.floor(total / 3600);
+        const durationMinutes = Math.floor((total % 3600) / 60);
         const durationSeconds = total % 60;
-        const durationText = durationMinutes + 'm' + durationSeconds + 's';
+
+        let durationText = '';
+        if (durationHours > 0)
+        {
+          durationText += durationHours + 'h ';
+        }
+        if (durationMinutes > 0 || durationHours > 0)
+        {
+          durationText += durationMinutes + 'm ';
+        }
+        durationText += durationSeconds + 's';
+
+        // Format remaining time in human-readable format
+        const remainingHours = Math.floor(remaining / 3600);
+        const remainingMinutes = Math.floor((remaining % 3600) / 60);
+        const remainingSeconds = remaining % 60;
+
+        let remainingText = '';
+        if (remainingHours > 0)
+        {
+          remainingText += remainingHours + 'h ';
+        }
+        if (remainingMinutes > 0 || remainingHours > 0)
+        {
+          remainingText += remainingMinutes + 'm ';
+        }
+        remainingText += remainingSeconds + 's';
 
         document.getElementById('session').textContent = session.charAt(0).toUpperCase() + session.slice(1);
-        document.getElementById('time-left').textContent = Math.floor(remaining / 60) + 'm ' + (remaining % 60) + 's';
+        document.getElementById('time-left').textContent = remainingText;
         document.getElementById('start-time').textContent = startTime;
         document.getElementById('end-time').textContent = endTime;
         document.getElementById('duration').textContent = durationText;
