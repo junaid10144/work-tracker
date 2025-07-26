@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Pomodoro Dashboard</title>
@@ -13,6 +14,7 @@
       max-width: 600px;
       margin: auto;
     }
+
     #progress-bar {
       width: 100%;
       background-color: #333;
@@ -21,39 +23,52 @@
       overflow: hidden;
       margin-top: 10px;
     }
+
     #progress {
       height: 100%;
       width: 0%;
       background-color: #00ffcc;
       transition: width 0.5s ease;
     }
+
     #session {
       font-weight: bold;
       font-size: 1.5rem;
     }
   </style>
 </head>
+
 <body>
   <h1>🧠 Pomodoro Dashboard</h1>
   <p>Session: <span id="session">--</span></p>
   <p>Time Left: <span id="time-left">--</span></p>
+  <p>Start: <span id="start-time">--</span> - End: <span id="end-time">--</span> - Duration: <span
+      id="duration">--</span></p>
+  <p>Progress: <span id="percent-complete">--%</span></p>
   <div id="progress-bar">
     <div id="progress"></div>
   </div>
 
   <script>
-    async function loadStatus() {
-      try {
-	     const response = await fetch('./status.json');
+    async function loadStatus()
+    {
+      try
+      {
+        const response = await fetch('./status.json');
         //const response = await fetch('status.json?' + Date.now());
         const data = await response.json();
 
         const session = data.session;
         const now = Math.floor(Date.now() / 1000);
 
-        if (session === 'idle' || !data.start_time || !data.end_time) {
+        if (session === 'idle' || !data.start_time || !data.end_time)
+        {
           document.getElementById('session').textContent = 'Idle / Not Working';
           document.getElementById('time-left').textContent = '--';
+          document.getElementById('start-time').textContent = '--';
+          document.getElementById('end-time').textContent = '--';
+          document.getElementById('duration').textContent = '--';
+          document.getElementById('percent-complete').textContent = '--%';
           document.getElementById('progress').style.width = '0%';
           return;
         }
@@ -65,12 +80,28 @@
         const elapsed = Math.min(total, now - start);
         const percent = (elapsed / total) * 100;
 
+        // Format times
+        const startTime = new Date(start * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+        const endTime = new Date(end * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+        const durationMinutes = Math.floor(total / 60);
+        const durationSeconds = total % 60;
+        const durationText = durationMinutes + 'm' + durationSeconds + 's';
+
         document.getElementById('session').textContent = session.charAt(0).toUpperCase() + session.slice(1);
         document.getElementById('time-left').textContent = Math.floor(remaining / 60) + 'm ' + (remaining % 60) + 's';
+        document.getElementById('start-time').textContent = startTime;
+        document.getElementById('end-time').textContent = endTime;
+        document.getElementById('duration').textContent = durationText;
+        document.getElementById('percent-complete').textContent = Math.round(percent) + '%';
         document.getElementById('progress').style.width = percent + '%';
-      } catch (err) {
+      } catch (err)
+      {
         document.getElementById('session').textContent = 'Error loading status';
         document.getElementById('time-left').textContent = '--';
+        document.getElementById('start-time').textContent = '--';
+        document.getElementById('end-time').textContent = '--';
+        document.getElementById('duration').textContent = '--';
+        document.getElementById('percent-complete').textContent = '--%';
         document.getElementById('progress').style.width = '0%';
       }
     }
@@ -79,4 +110,5 @@
     setInterval(loadStatus, 10000);
   </script>
 </body>
+
 </html>
