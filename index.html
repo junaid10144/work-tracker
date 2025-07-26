@@ -555,6 +555,11 @@
           </div>
 
           <div class="info-card">
+            <h3>Current Project</h3>
+            <div class="value" id="current-project">--</div>
+          </div>
+
+          <div class="info-card">
             <h3>Time Remaining</h3>
             <div class="value" id="time-left">--</div>
           </div>
@@ -700,6 +705,7 @@
         {
           document.body.classList.add('status-idle');
           document.getElementById('session').textContent = 'Idle / Not Working';
+          document.getElementById('current-project').textContent = '--';
           document.getElementById('time-left').textContent = '--';
           document.getElementById('start-time').textContent = '--';
           document.getElementById('end-time').textContent = '--';
@@ -759,6 +765,7 @@
         remainingText += remainingSeconds + 's';
 
         document.getElementById('session').textContent = session.charAt(0).toUpperCase() + session.slice(1);
+        document.getElementById('current-project').textContent = data.project || '--';
         document.getElementById('time-left').textContent = remainingText;
         document.getElementById('start-time').textContent = startTime;
         document.getElementById('end-time').textContent = endTime;
@@ -768,6 +775,7 @@
       } catch (err)
       {
         document.getElementById('session').textContent = 'Error loading status';
+        document.getElementById('current-project').textContent = '--';
         document.getElementById('time-left').textContent = '--';
         document.getElementById('start-time').textContent = '--';
         document.getElementById('end-time').textContent = '--';
