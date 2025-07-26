@@ -45,6 +45,45 @@
       opacity: 0.8;
     }
 
+    .timezone-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .timezone-badge {
+      background: rgba(0, 255, 204, 0.1);
+      border: 1px solid rgba(0, 255, 204, 0.2);
+      border-radius: 15px;
+      padding: 5px 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .live-indicator {
+      width: 8px;
+      height: 8px;
+      background: #00ff00;
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
     .dashboard-grid {
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -490,6 +529,15 @@
     <div class="header">
       <h1>🧠 Live Work Dashboard</h1>
       <p class="subtitle">Real-time team visibility into my work activities</p>
+      <div class="timezone-info">
+        <div class="timezone-badge">
+          <div class="live-indicator"></div>
+          <span>🌍 Your timezone: <span id="user-timezone">Loading...</span></span>
+        </div>
+        <div class="timezone-badge">
+          <span>🕐 Local time: <span id="local-time">--:--</span></span>
+        </div>
+      </div>
     </div>
 
     <!-- Main Dashboard Grid -->
@@ -593,6 +641,50 @@
   </div>
 
   <script>
+    // Update times to user's timezone
+    function formatTimeInUserTimezone(timeString)
+    {
+      if (!timeString) return '--:--';
+
+      const date = new Date(timeString);
+      const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+      return new Intl.DateTimeFormat('en-US', {
+        timeZone: userTimezone,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      }).format(date);
+    }
+
+    function formatDateTimeInUserTimezone(timeString)
+    {
+      if (!timeString) return 'Not set';
+
+      const date = new Date(timeString);
+      const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+      return new Intl.DateTimeFormat('en-US', {
+        timeZone: userTimezone,
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).format(date);
+    }
+
+    function updateTimezoneInfo()
+    {
+      const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const currentTime = new Date();
+
+      document.getElementById('user-timezone').textContent = userTimezone;
+      document.getElementById('local-time').textContent = formatTimeInUserTimezone(currentTime.toISOString());
+    }
+
     async function loadStatus()
     {
       try
@@ -626,9 +718,13 @@
         const elapsed = Math.min(total, now - start);
         const percent = (elapsed / total) * 100;
 
-        // Format times
-        const startTime = new Date(start * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
-        const endTime = new Date(end * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+        // Convert timestamps to user's timezone
+        const startDate = new Date(start * 1000);
+        const endDate = new Date(end * 1000);
+
+        // Format times in user's timezone
+        const startTime = formatTimeInUserTimezone(startDate.toISOString());
+        const endTime = formatTimeInUserTimezone(endDate.toISOString());
         const durationMinutes = Math.floor(total / 60);
         const durationSeconds = total % 60;
         const durationText = durationMinutes + 'm' + durationSeconds + 's';
@@ -674,11 +770,7 @@
           const taskElement = document.createElement('div');
           taskElement.className = `task-item ${task.id === data.currentTask ? 'active' : ''}`;
 
-          const lastActiveTime = new Date(task.lastActive).toLocaleTimeString([], {
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true
-          });
+          const lastActiveTime = formatTimeInUserTimezone(task.lastActive);
 
           taskElement.innerHTML = `
             <div class="task-header">
@@ -714,10 +806,22 @@
       return `${mins}m`;
     }
 
+    // Initialize dashboard
+    updateTimezoneInfo();
     loadStatus();
     loadTasks();
-    setInterval(loadStatus, 10000);
+
+    // Real-time updates
+    setInterval(() =>
+    {
+      updateTimezoneInfo();
+      loadStatus();
+    }, 5000); // Update every 5 seconds for more real-time feel
+
     setInterval(loadTasks, 30000); // Reload tasks every 30 seconds
+
+    // Update timezone info every second for live clock
+    setInterval(updateTimezoneInfo, 1000);
   </script>
 </body>
 
