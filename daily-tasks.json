@@ -25,7 +25,7 @@
       "id": 1753680221428,
       "title": "Vendor API Integration",
       "type": "backend",
-      "status": "in-progress",
+      "status": "paused",
       "priority": "high",
       "timeSpent": "1h 30m",
       "lastActive": "2025-07-28T11:00:00.555Z",
@@ -45,16 +45,16 @@
       "id": 1753701450973,
       "title": "Alhai Dev Server Deployment",
       "type": "deployment",
-      "status": "pending",
+      "status": "in-progress",
       "priority": "high",
       "timeSpent": "0m",
-      "lastActive": "2025-07-28T11:00:00.973Z",
+      "lastActive": "2025-07-28T11:00:56.226Z",
       "description": "Deploy the Alhai development server and execute database migrations to ensure the latest"
     }
   ],
-  "currentTask": 1753680221428,
+  "currentTask": 1753701450973,
   "totalTimeToday": "2h 10m",
   "tasksCompleted": 1,
   "tasksInProgress": 1,
-  "tasksPending": 3
+  "tasksPending": 2
 }
