@@ -30,11 +30,21 @@
       "timeSpent": "0m",
       "lastActive": "2025-07-28T05:23:41.428Z",
       "description": "Create an API to add vendors, save them in the database, and validate if the Vendor ID already exists on MyFatoorah (manually created by admin)."
+    },
+    {
+      "id": 1753685246426,
+      "title": "Modon Express Sync Meeting",
+      "type": "meeting",
+      "status": "pending",
+      "priority": "medium",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-28T06:47:26.426Z",
+      "description": "Discuss synchronization strategies for Modon Express project."
     }
   ],
   "currentTask": 0,
   "totalTimeToday": "0m",
   "tasksCompleted": 0,
   "tasksInProgress": 0,
-  "tasksPending": 3
+  "tasksPending": 4
 }
