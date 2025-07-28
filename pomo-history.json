@@ -1,3 +1,13 @@
 {
-    "sessions": []
+  "sessions": [
+    {
+      "date": "2025-07-28",
+      "datetime": "2025-07-28T19:45:22+05:00",
+      "session_type": "long-break",
+      "project": "Break",
+      "start_time": 1753710909,
+      "end_time": 1753712409,
+      "duration_minutes": 25
+    }
+  ]
 }
