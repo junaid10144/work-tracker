@@ -30,10 +30,11 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Dashboard file paths
-DASHBOARD_DIR="/mnt/c/Users/Senior Software Eng/Downloads/my-pomo-dashboard"
+DASHBOARD_DIR="/home/junaid/work-tracker"
 STATUS_FILE="$DASHBOARD_DIR/status.json"
 TASKS_FILE="$DASHBOARD_DIR/daily-tasks.json"
 HISTORY_FILE="$DASHBOARD_DIR/pomo-history.json"
+TIMER_SCRIPT="$DASHBOARD_DIR/timer.sh"
 
 # Function to show available projects
 show_projects() {
@@ -189,7 +190,15 @@ pomodoro() {
     fi
     
     # Run timer
-    timer ${duration}m
+    if [ -f "$TIMER_SCRIPT" ]; then
+        bash "$TIMER_SCRIPT" ${duration}m
+    elif command -v timer >/dev/null 2>&1; then
+        timer ${duration}m
+    else
+        echo "⏰ Timer running for $duration minutes..."
+        echo "💡 Install the custom timer script for better experience"
+        sleep $((duration * 60))
+    fi
     
     # Session completed
     local completion_message="$session_type session completed"
@@ -206,7 +215,7 @@ pomodoro() {
     log_to_history "$session_type" "$project_name" "$start_time" "$end_time"
     
     # Update status to idle
-    cat > "$STATUS_FILE" << EOF
+    cat > "$STATUS_FILE" << 'EOF'
 {
   "session": "idle",
   "project": "",

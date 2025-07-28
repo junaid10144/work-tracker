@@ -3,7 +3,7 @@
 # Simple deployment script for Pomodoro Dashboard
 # Place this in your dashboard directory
 
-DASHBOARD_DIR="/mnt/c/Users/Senior Software Eng/Downloads/my-pomo-dashboard"
+DASHBOARD_DIR="/home/junaid/work-tracker"
 SERVER_USER="your-username"
 SERVER_HOST="your-server.com"
 SERVER_PATH="/var/www/html/pomo-dashboard"
