@@ -25,10 +25,10 @@
       "id": 1753680221428,
       "title": "Vendor API Integration",
       "type": "backend",
-      "status": "paused",
+      "status": "in-progress",
       "priority": "high",
       "timeSpent": "1h 30m",
-      "lastActive": "2025-07-28T11:00:00.555Z",
+      "lastActive": "2025-07-28T12:00:14.867Z",
       "description": "Create an API to add vendors, save them in the database, and validate if the Vendor ID already exists on MyFatoorah (manually created by admin)."
     },
     {
@@ -52,9 +52,9 @@
       "description": "Deploy the Alhai development server and execute database migrations to ensure the latest"
     }
   ],
-  "currentTask": null,
+  "currentTask": 1753680221428,
   "totalTimeToday": "2h 55m",
   "tasksCompleted": 2,
-  "tasksInProgress": 0,
+  "tasksInProgress": 1,
   "tasksPending": 2
 }
