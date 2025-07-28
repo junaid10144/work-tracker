@@ -40,11 +40,21 @@
       "timeSpent": "40m",
       "lastActive": "2025-07-28T07:40:11.867Z",
       "description": "Discuss synchronization strategies for Modon Express project."
+    },
+    {
+      "id": 1753701450973,
+      "title": "Alhai Dev Server Deployment",
+      "type": "deployment",
+      "status": "pending",
+      "priority": "high",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-28T11:00:00.973Z",
+      "description": "Deploy the Alhai development server and execute database migrations to ensure the latest"
     }
   ],
   "currentTask": 1753680221428,
   "totalTimeToday": "2h 10m",
   "tasksCompleted": 1,
   "tasksInProgress": 1,
-  "tasksPending": 2
+  "tasksPending": 3
 }
