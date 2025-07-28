@@ -15,20 +15,20 @@
       "id": 1753680215915,
       "title": "Vendor ID Input Field",
       "type": "frontend",
-      "status": "pending",
+      "status": "in-progress",
       "priority": "medium",
       "timeSpent": "0m",
-      "lastActive": "2025-07-28T05:23:35.915Z",
+      "lastActive": "2025-07-28T18:15:54.660Z",
       "description": "Add a Vendor ID input field on the admin frontend to enable multi-vendor creation on MyFatoorah portal."
     },
     {
       "id": 1753680221428,
       "title": "Vendor API Integration",
       "type": "backend",
-      "status": "in-progress",
+      "status": "completed",
       "priority": "high",
-      "timeSpent": "3h 00m",
-      "lastActive": "2025-07-28T17:30:03.674Z",
+      "timeSpent": "3h 45m",
+      "lastActive": "2025-07-28T18:15:22.795Z",
       "description": "Create an API to add vendors, save them in the database, and validate if the Vendor ID already exists on MyFatoorah (manually created by admin)."
     },
     {
@@ -52,9 +52,9 @@
       "description": "Deploy the Alhai development server and execute database migrations to ensure the latest"
     }
   ],
-  "currentTask": 1753680221428,
-  "totalTimeToday": "4h 25m",
-  "tasksCompleted": 2,
+  "currentTask": 1753680215915,
+  "totalTimeToday": "5h 10m",
+  "tasksCompleted": 3,
   "tasksInProgress": 1,
-  "tasksPending": 2
+  "tasksPending": 1
 }
