@@ -1,60 +1,11 @@
 {
-    "date": "2025-07-27",
+    "date": "2025-07-28",
     "tasks": [
-        {
-            "id": 1,
-            "title": "API Bug Fix - Ticket #456",
-            "type": "backend",
-            "status": "in-progress",
-            "priority": "high",
-            "timeSpent": "45m",
-            "lastActive": "2025-07-27T12:30:00",
-            "description": "Fixing authentication API endpoint returning 500 error"
-        },
-        {
-            "id": 2,
-            "title": "Team Standup Meeting",
-            "type": "meeting",
-            "status": "completed",
-            "priority": "medium",
-            "timeSpent": "30m",
-            "lastActive": "2025-07-27T09:00:00",
-            "description": "Daily standup with development team"
-        },
-        {
-            "id": 3,
-            "title": "Frontend Dashboard UI",
-            "type": "frontend",
-            "status": "paused",
-            "priority": "medium",
-            "timeSpent": "1h 20m",
-            "lastActive": "2025-07-27T11:15:00",
-            "description": "Working on new dashboard components and styling"
-        },
-        {
-            "id": 4,
-            "title": "Deploy to Staging Environment",
-            "type": "deployment",
-            "status": "pending",
-            "priority": "high",
-            "timeSpent": "0m",
-            "lastActive": "2025-07-27T13:00:00",
-            "description": "Deploy latest changes to staging for QA testing"
-        },
-        {
-            "id": 5,
-            "title": "Code Review - PR #234",
-            "type": "review",
-            "status": "completed",
-            "priority": "medium",
-            "timeSpent": "25m",
-            "lastActive": "2025-07-27T10:30:00",
-            "description": "Reviewing colleague's pull request for user authentication"
-        }
+       
     ],
-    "currentTask": 1,
-    "totalTimeToday": "2h 40m",
-    "tasksCompleted": 2,
-    "tasksInProgress": 1,
-    "tasksPending": 2
+    "currentTask": 0,
+    "totalTimeToday": "0:00:00",
+    "tasksCompleted": 0,
+    "tasksInProgress": 0,
+    "tasksPending": 0
 }
