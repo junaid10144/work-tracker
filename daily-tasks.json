@@ -1,11 +1,40 @@
 {
-    "date": "2025-07-28",
-    "tasks": [
-       
-    ],
-    "currentTask": 0,
-    "totalTimeToday": "0:00:00",
-    "tasksCompleted": 0,
-    "tasksInProgress": 0,
-    "tasksPending": 0
+  "date": "2025-07-28",
+  "tasks": [
+    {
+      "id": 1753680212016,
+      "title": "MyFatoorah Integration",
+      "type": "frontend",
+      "status": "pending",
+      "priority": "high",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-28T05:23:32.016Z",
+      "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases."
+    },
+    {
+      "id": 1753680215915,
+      "title": "Vendor ID Input Field",
+      "type": "frontend",
+      "status": "pending",
+      "priority": "medium",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-28T05:23:35.915Z",
+      "description": "Add a Vendor ID input field on the admin frontend to enable multi-vendor creation on MyFatoorah portal."
+    },
+    {
+      "id": 1753680221428,
+      "title": "Vendor API Integration",
+      "type": "backend",
+      "status": "pending",
+      "priority": "high",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-28T05:23:41.428Z",
+      "description": "Create an API to add vendors, save them in the database, and validate if the Vendor ID already exists on MyFatoorah (manually created by admin)."
+    }
+  ],
+  "currentTask": 0,
+  "totalTimeToday": "0m",
+  "tasksCompleted": 0,
+  "tasksInProgress": 0,
+  "tasksPending": 3
 }
