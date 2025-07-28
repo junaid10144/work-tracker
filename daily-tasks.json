@@ -45,16 +45,16 @@
       "id": 1753701450973,
       "title": "Alhai Dev Server Deployment",
       "type": "deployment",
-      "status": "in-progress",
+      "status": "completed",
       "priority": "high",
-      "timeSpent": "0m",
-      "lastActive": "2025-07-28T11:00:56.226Z",
+      "timeSpent": "45m",
+      "lastActive": "2025-07-28T11:45:00.688Z",
       "description": "Deploy the Alhai development server and execute database migrations to ensure the latest"
     }
   ],
-  "currentTask": 1753701450973,
-  "totalTimeToday": "2h 10m",
-  "tasksCompleted": 1,
-  "tasksInProgress": 1,
+  "currentTask": null,
+  "totalTimeToday": "2h 55m",
+  "tasksCompleted": 2,
+  "tasksInProgress": 0,
   "tasksPending": 2
 }
