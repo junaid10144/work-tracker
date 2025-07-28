@@ -3,22 +3,57 @@
 # Enhanced Pomodoro Script with Project & Task Tracking
 # Usage: wo [project] or br [break-type]
 
+# Detect shell and ensure compatibility
+if [ -n "$ZSH_VERSION" ]; then
+    # Running in zsh
+    setopt SH_WORD_SPLIT
+fi
+
 # Pomodoro timing options
-declare -A pomo_options
-pomo_options["work"]="45"
-pomo_options["short-break"]="10"
-pomo_options["long-break"]="25"
-pomo_options["lunch"]="60"
+declare -A pomo_options 2>/dev/null || {
+    # Fallback for older shells
+    pomo_options() {
+        case "$1" in
+            "work") echo "45" ;;
+            "short-break") echo "10" ;;
+            "long-break") echo "25" ;;
+            "lunch") echo "60" ;;
+        esac
+    }
+}
+
+if declare -A pomo_options 2>/dev/null; then
+    pomo_options["work"]="45"
+    pomo_options["short-break"]="10"
+    pomo_options["long-break"]="25"
+    pomo_options["lunch"]="60"
+fi
 
 # Project options
-declare -A projects
-projects["modon"]="Modon Express"
-projects["alhai"]="Alhai"
-projects["aivue"]="Aivue"
-projects["faayiz"]="Faayiz"
-projects["personal"]="Personal Development"
-projects["meeting"]="Team Meeting"
-projects["review"]="Code Review"
+declare -A projects 2>/dev/null || {
+    # Fallback for older shells
+    projects() {
+        case "$1" in
+            "modon") echo "Modon Express" ;;
+            "alhai") echo "Alhai" ;;
+            "aivue") echo "Aivue" ;;
+            "faayiz") echo "Faayiz" ;;
+            "personal") echo "Personal Development" ;;
+            "meeting") echo "Team Meeting" ;;
+            "review") echo "Code Review" ;;
+        esac
+    }
+}
+
+if declare -A projects 2>/dev/null; then
+    projects["modon"]="Modon Express"
+    projects["alhai"]="Alhai"
+    projects["aivue"]="Aivue"
+    projects["faayiz"]="Faayiz"
+    projects["personal"]="Personal Development"
+    projects["meeting"]="Team Meeting"
+    projects["review"]="Code Review"
+fi
 
 # Colors for output
 RED='\033[0;31m'
@@ -36,20 +71,83 @@ TASKS_FILE="$DASHBOARD_DIR/daily-tasks.json"
 HISTORY_FILE="$DASHBOARD_DIR/pomo-history.json"
 TIMER_SCRIPT="$DASHBOARD_DIR/timer.sh"
 
+# Helper functions to get values
+get_pomo_duration() {
+    local session_type="$1"
+    if [ -n "$BASH_VERSION" ] && declare -A pomo_options 2>/dev/null; then
+        echo "${pomo_options[$session_type]}"
+    else
+        case "$session_type" in
+            "work") echo "45" ;;
+            "short-break") echo "10" ;;
+            "long-break") echo "25" ;;
+            "lunch") echo "60" ;;
+            *) echo "" ;;
+        esac
+    fi
+}
+
+get_project_name() {
+    local project_key="$1"
+    if [ -n "$BASH_VERSION" ] && declare -A projects 2>/dev/null; then
+        echo "${projects[$project_key]}"
+    else
+        case "$project_key" in
+            "modon") echo "Modon Express" ;;
+            "alhai") echo "Alhai" ;;
+            "aivue") echo "Aivue" ;;
+            "faayiz") echo "Faayiz" ;;
+            "personal") echo "Personal Development" ;;
+            "meeting") echo "Team Meeting" ;;
+            "review") echo "Code Review" ;;
+            *) echo "" ;;
+        esac
+    fi
+}
+
+validate_session_type() {
+    local session_type="$1"
+    local duration=$(get_pomo_duration "$session_type")
+    [ -n "$duration" ]
+}
+
+validate_project() {
+    local project="$1"
+    local project_name=$(get_project_name "$project")
+    [ -n "$project_name" ]
+}
+
 # Function to show available projects
 show_projects() {
     echo -e "${CYAN}Available Projects:${NC}"
-    for key in "${!projects[@]}"; do
-        echo -e "  ${YELLOW}$key${NC} - ${projects[$key]}"
-    done
+    if [ -n "$BASH_VERSION" ] && declare -A projects 2>/dev/null; then
+        for key in "${!projects[@]}"; do
+            echo -e "  ${YELLOW}$key${NC} - ${projects[$key]}"
+        done
+    else
+        echo -e "  ${YELLOW}modon${NC} - Modon Express"
+        echo -e "  ${YELLOW}alhai${NC} - Alhai"
+        echo -e "  ${YELLOW}aivue${NC} - Aivue"
+        echo -e "  ${YELLOW}faayiz${NC} - Faayiz"
+        echo -e "  ${YELLOW}personal${NC} - Personal Development"
+        echo -e "  ${YELLOW}meeting${NC} - Team Meeting"
+        echo -e "  ${YELLOW}review${NC} - Code Review"
+    fi
 }
 
 # Function to show available session types
 show_sessions() {
     echo -e "${CYAN}Available Sessions:${NC}"
-    for key in "${!pomo_options[@]}"; do
-        echo -e "  ${YELLOW}$key${NC} - ${pomo_options[$key]} minutes"
-    done
+    if [ -n "$BASH_VERSION" ] && declare -A pomo_options 2>/dev/null; then
+        for key in "${!pomo_options[@]}"; do
+            echo -e "  ${YELLOW}$key${NC} - ${pomo_options[$key]} minutes"
+        done
+    else
+        echo -e "  ${YELLOW}work${NC} - 45 minutes"
+        echo -e "  ${YELLOW}short-break${NC} - 10 minutes"
+        echo -e "  ${YELLOW}long-break${NC} - 25 minutes"
+        echo -e "  ${YELLOW}lunch${NC} - 60 minutes"
+    fi
 }
 
 # Function to update status.json
@@ -57,7 +155,7 @@ update_status() {
     local session_type="$1"
     local project="$2"
     local start_time=$(date +%s)
-    local duration_minutes=${pomo_options["$session_type"]}
+    local duration_minutes=$(get_pomo_duration "$session_type")
     local end_time=$((start_time + duration_minutes * 60))
     
     # Create status JSON
@@ -81,6 +179,7 @@ log_to_history() {
     local end_time="$4"
     local date=$(date +%Y-%m-%d)
     local datetime=$(date --iso-8601=seconds)
+    local duration_minutes=$(get_pomo_duration "$session_type")
     
     # Create history entry
     local entry="{
@@ -90,7 +189,7 @@ log_to_history() {
         \"project\": \"$project\",
         \"start_time\": $start_time,
         \"end_time\": $end_time,
-        \"duration_minutes\": ${pomo_options["$session_type"]}
+        \"duration_minutes\": $duration_minutes
     }"
     
     # Initialize history file if it doesn't exist
@@ -112,7 +211,8 @@ add_current_task() {
     local session_type="$2"
     
     if [ "$session_type" = "work" ] && [ -n "$project" ]; then
-        local task_title="${projects[$project]} - Development Session"
+        local project_name=$(get_project_name "$project")
+        local task_title="$project_name - Development Session"
         local current_time=$(date --iso-8601=seconds)
         
         # Read current tasks and add new one
@@ -146,7 +246,7 @@ pomodoro() {
     local project="$2"
     
     # Validate session type
-    if [ -z "$session_type" ] || [ -z "${pomo_options["$session_type"]}" ]; then
+    if [ -z "$session_type" ] || ! validate_session_type "$session_type"; then
         echo -e "${RED}❌ Invalid session type: $session_type${NC}"
         show_sessions
         return 1
@@ -154,17 +254,17 @@ pomodoro() {
     
     # For work sessions, require project
     if [ "$session_type" = "work" ]; then
-        if [ -z "$project" ] || [ -z "${projects["$project"]}" ]; then
+        if [ -z "$project" ] || ! validate_project "$project"; then
             echo -e "${RED}❌ Work session requires a valid project${NC}"
             show_projects
             return 1
         fi
-        local project_name="${projects[$project]}"
+        local project_name=$(get_project_name "$project")
     else
         local project_name="Break"
     fi
     
-    local duration=${pomo_options["$session_type"]}
+    local duration=$(get_pomo_duration "$session_type")
     local start_time=$(date +%s)
     local end_time=$((start_time + duration * 60))
     
@@ -231,6 +331,12 @@ EOF
 }
 
 # Enhanced aliases with project selection
+# Unset any existing aliases first
+unalias wo 2>/dev/null || true
+unalias br 2>/dev/null || true
+unalias lbr 2>/dev/null || true
+unalias lunch 2>/dev/null || true
+
 wo() {
     if [ -z "$1" ]; then
         echo -e "${RED}❌ Please specify a project:${NC}"
@@ -305,8 +411,10 @@ pomo_help() {
     show_projects
 }
 
-# Export functions for use
-export -f pomodoro wo br lbr lunch pomo_status pomo_history pomo_help show_projects show_sessions
+# Export functions for use (if in bash)
+if [ -n "$BASH_VERSION" ]; then
+    export -f pomodoro wo br lbr lunch pomo_status pomo_history pomo_help show_projects show_sessions
+fi
 
 echo -e "${GREEN}✅ Enhanced Pomodoro script loaded!${NC}"
 echo -e "${BLUE}💡 Type 'pomo_help' for usage instructions${NC}"
