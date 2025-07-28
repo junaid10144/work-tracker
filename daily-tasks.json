@@ -35,16 +35,16 @@
       "id": 1753685246426,
       "title": "Modon Express Sync Meeting",
       "type": "meeting",
-      "status": "pending",
+      "status": "in-progress",
       "priority": "medium",
       "timeSpent": "0m",
-      "lastActive": "2025-07-28T06:47:26.426Z",
+      "lastActive": "2025-07-28T07:00:36.103Z",
       "description": "Discuss synchronization strategies for Modon Express project."
     }
   ],
-  "currentTask": 0,
+  "currentTask": 1753685246426,
   "totalTimeToday": "0m",
   "tasksCompleted": 0,
-  "tasksInProgress": 0,
-  "tasksPending": 4
+  "tasksInProgress": 1,
+  "tasksPending": 3
 }
