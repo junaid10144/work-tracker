@@ -25,16 +25,16 @@
       "id": 1753768716840,
       "title": "Vendor ID Input Field",
       "type": "frontend",
-      "status": "in-progress",
+      "status": "paused",
       "priority": "high",
-      "timeSpent": "0m",
-      "lastActive": "2025-07-29T06:00:04.816Z",
+      "timeSpent": "45m",
+      "lastActive": "2025-07-29T06:45:08.245Z",
       "description": "Add a Vendor ID input field on the admin frontend to enable multi-vendor creation on MyFatoorah portal."
     }
   ],
-  "currentTask": 1753768716840,
-  "totalTimeToday": "0m",
+  "currentTask": null,
+  "totalTimeToday": "45m",
   "tasksCompleted": 0,
-  "tasksInProgress": 1,
+  "tasksInProgress": 0,
   "tasksPending": 2
 }
