@@ -35,16 +35,16 @@
       "id": 1753780207861,
       "title": "Modon Express Daily Standup",
       "type": "meeting",
-      "status": "in-progress",
+      "status": "completed",
       "priority": "medium",
-      "timeSpent": "0m",
-      "lastActive": "2025-07-29T09:10:32.475Z",
+      "timeSpent": "5m",
+      "lastActive": "2025-07-29T09:15:38.566Z",
       "description": "Daily standup meeting for the Modon Express project to discuss progress, blockers, and plans."
     }
   ],
-  "currentTask": 1753780207861,
-  "totalTimeToday": "1h 50m",
-  "tasksCompleted": 1,
-  "tasksInProgress": 1,
+  "currentTask": null,
+  "totalTimeToday": "1h 55m",
+  "tasksCompleted": 2,
+  "tasksInProgress": 0,
   "tasksPending": 2
 }
