@@ -80,6 +80,15 @@
       "start_time": 1753796441,
       "end_time": 1753799141,
       "duration_minutes": 45
+    },
+    {
+      "date": "2025-07-29",
+      "datetime": "2025-07-29T20:14:13+05:00",
+      "session_type": "long-break",
+      "project": "Break",
+      "start_time": 1753800541,
+      "end_time": 1753802041,
+      "duration_minutes": 25
     }
   ]
 }
