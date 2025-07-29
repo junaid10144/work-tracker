@@ -30,11 +30,21 @@
       "timeSpent": "1h 50m",
       "lastActive": "2025-07-29T08:24:33.166Z",
       "description": "Add a Vendor ID input field on the admin frontend to enable multi-vendor creation on MyFatoorah portal."
+    },
+    {
+      "id": 1753780207861,
+      "title": "Modon Express Daily Standup",
+      "type": "meeting",
+      "status": "in-progress",
+      "priority": "medium",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-29T09:10:32.475Z",
+      "description": "Daily standup meeting for the Modon Express project to discuss progress, blockers, and plans."
     }
   ],
-  "currentTask": null,
+  "currentTask": 1753780207861,
   "totalTimeToday": "1h 50m",
   "tasksCompleted": 1,
-  "tasksInProgress": 0,
+  "tasksInProgress": 1,
   "tasksPending": 2
 }
