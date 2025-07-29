@@ -1,60 +1,11 @@
 {
-  "date": "2025-07-28",
+  "date": "2025-07-29",
   "tasks": [
-    {
-      "id": 1753680212016,
-      "title": "MyFatoorah Integration",
-      "type": "frontend",
-      "status": "pending",
-      "priority": "high",
-      "timeSpent": "0m",
-      "lastActive": "2025-07-28T05:23:32.016Z",
-      "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases."
-    },
-    {
-      "id": 1753680215915,
-      "title": "Vendor ID Input Field",
-      "type": "frontend",
-      "status": "completed",
-      "priority": "medium",
-      "timeSpent": "45m",
-      "lastActive": "2025-07-28T23:59:59.000Z",
-      "description": "Add a Vendor ID input field on the admin frontend to enable multi-vendor creation on MyFatoorah portal."
-    },
-    {
-      "id": 1753680221428,
-      "title": "Vendor API Integration",
-      "type": "backend",
-      "status": "completed",
-      "priority": "high",
-      "timeSpent": "3h 45m",
-      "lastActive": "2025-07-28T18:15:22.795Z",
-      "description": "Create an API to add vendors, save them in the database, and validate if the Vendor ID already exists on MyFatoorah (manually created by admin)."
-    },
-    {
-      "id": 1753685246426,
-      "title": "Modon Express Sync Meeting",
-      "type": "meeting",
-      "status": "completed",
-      "priority": "medium",
-      "timeSpent": "40m",
-      "lastActive": "2025-07-28T07:40:11.867Z",
-      "description": "Discuss synchronization strategies for Modon Express project."
-    },
-    {
-      "id": 1753701450973,
-      "title": "Alhai Dev Server Deployment",
-      "type": "deployment",
-      "status": "completed",
-      "priority": "high",
-      "timeSpent": "45m",
-      "lastActive": "2025-07-28T11:45:00.688Z",
-      "description": "Deploy the Alhai development server and execute database migrations to ensure the latest"
-    }
+
   ],
   "currentTask": null,
-  "totalTimeToday": "5h 55m",
-  "tasksCompleted": 4,
+  "totalTimeToday": "0:00:00",
+  "tasksCompleted": 0,
   "tasksInProgress": 0,
-  "tasksPending": 1
+  "tasksPending": 0
 }
