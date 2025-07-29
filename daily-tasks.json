@@ -5,10 +5,10 @@
       "id": 1753767992343,
       "title": "MyFatoorah Integration",
       "type": "frontend",
-      "status": "pending",
+      "status": "in-progress",
       "priority": "high",
       "timeSpent": "0m",
-      "lastActive": "2025-07-29T05:45:00.343Z",
+      "lastActive": "2025-07-29T09:55:45.640Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     },
     {
@@ -42,9 +42,9 @@
       "description": "Daily standup meeting for the Modon Express project to discuss progress, blockers, and plans."
     }
   ],
-  "currentTask": null,
+  "currentTask": 1753767992343,
   "totalTimeToday": "1h 55m",
   "tasksCompleted": 2,
-  "tasksInProgress": 0,
-  "tasksPending": 2
+  "tasksInProgress": 1,
+  "tasksPending": 1
 }
