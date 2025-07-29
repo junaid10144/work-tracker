@@ -1,11 +1,40 @@
 {
   "date": "2025-07-29",
   "tasks": [
-
+    {
+      "id": 1753767992343,
+      "title": "MyFatoorah Integration",
+      "type": "frontend",
+      "status": "pending",
+      "priority": "high",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-29T05:45:00.343Z",
+      "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
+    },
+    {
+      "id": 1753768299692,
+      "title": "Display MyFatoorah Seller Commission Info",
+      "type": "frontend",
+      "status": "pending",
+      "priority": "medium",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-29T05:51:39.692Z",
+      "description": "When admin manually creates a seller in MyFatoorah, show the returned commission and supplier info (e.g., CommissionValue, DepositTerms, etc.) in the seller's dashboard under the Supplier Details section."
+    },
+    {
+      "id": 1753768716840,
+      "title": "Vendor ID Input Field",
+      "type": "frontend",
+      "status": "in-progress",
+      "priority": "high",
+      "timeSpent": "0m",
+      "lastActive": "2025-07-29T06:00:04.816Z",
+      "description": "Add a Vendor ID input field on the admin frontend to enable multi-vendor creation on MyFatoorah portal."
+    }
   ],
-  "currentTask": null,
-  "totalTimeToday": "0:00:00",
+  "currentTask": 1753768716840,
+  "totalTimeToday": "0m",
   "tasksCompleted": 0,
-  "tasksInProgress": 0,
-  "tasksPending": 0
+  "tasksInProgress": 1,
+  "tasksPending": 2
 }
