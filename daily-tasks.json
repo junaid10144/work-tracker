@@ -7,8 +7,8 @@
       "type": "frontend",
       "status": "paused",
       "priority": "high",
-      "timeSpent": "3h",
-      "lastActive": "2025-07-29T14:50:02.317Z",
+      "timeSpent": "3h 0m",
+      "lastActive": "2025-07-29T14:53:00.137Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     },
     {
@@ -43,7 +43,7 @@
     }
   ],
   "currentTask": null,
-  "totalTimeToday": "1h 55m",
+  "totalTimeToday": "4h 55m",
   "tasksCompleted": 2,
   "tasksInProgress": 0,
   "tasksPending": 1
