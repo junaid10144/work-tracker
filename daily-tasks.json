@@ -1,50 +1,11 @@
 {
-  "date": "2025-07-29",
+  "date": "2025-08-01",
   "tasks": [
-    {
-      "id": 1753767992343,
-      "title": "MyFatoorah Integration",
-      "type": "frontend",
-      "status": "in-progress",
-      "priority": "high",
-      "timeSpent": "4h 30m",
-      "lastActive": "2025-07-29T18:50:50.970Z",
-      "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
-    },
-    {
-      "id": 1753768299692,
-      "title": "Display MyFatoorah Seller Commission Info",
-      "type": "frontend",
-      "status": "pending",
-      "priority": "medium",
-      "timeSpent": "0m",
-      "lastActive": "2025-07-29T05:51:39.692Z",
-      "description": "When admin manually creates a seller in MyFatoorah, show the returned commission and supplier info (e.g., CommissionValue, DepositTerms, etc.) in the seller's dashboard under the Supplier Details section."
-    },
-    {
-      "id": 1753768716840,
-      "title": "Vendor ID Input Field",
-      "type": "frontend",
-      "status": "completed",
-      "priority": "high",
-      "timeSpent": "1h 50m",
-      "lastActive": "2025-07-29T08:24:33.166Z",
-      "description": "Add a Vendor ID input field on the admin frontend to enable multi-vendor creation on MyFatoorah portal."
-    },
-    {
-      "id": 1753780207861,
-      "title": "Modon Express Daily Standup",
-      "type": "meeting",
-      "status": "completed",
-      "priority": "medium",
-      "timeSpent": "5m",
-      "lastActive": "2025-07-29T09:15:38.566Z",
-      "description": "Daily standup meeting for the Modon Express project to discuss progress, blockers, and plans."
-    }
+
   ],
-  "currentTask": 1753767992343,
-  "totalTimeToday": "6h 25m",
-  "tasksCompleted": 2,
-  "tasksInProgress": 1,
-  "tasksPending": 1
+  "currentTask": null,
+  "totalTimeToday": "0:00:00",
+  "tasksCompleted": 0,
+  "tasksInProgress": 0,
+  "tasksPending": 0
 }
