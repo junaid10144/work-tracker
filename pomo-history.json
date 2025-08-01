@@ -107,6 +107,15 @@
       "start_time": 1753812565,
       "end_time": 1753815265,
       "duration_minutes": 45
+    },
+    {
+      "date": "2025-08-01",
+      "datetime": "2025-08-01T11:15:11+05:00",
+      "session_type": "work",
+      "project": "Modon Express",
+      "start_time": 1754026205,
+      "end_time": 1754028905,
+      "duration_minutes": 45
     }
   ]
 }
