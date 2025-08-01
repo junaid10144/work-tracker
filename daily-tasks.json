@@ -5,10 +5,10 @@
       "id": 1754026006285,
       "title": "MyFatoorah Integration",
       "type": "frontend",
-      "status": "in-progress",
+      "status": "paused",
       "priority": "high",
       "timeSpent": "4h 05m",
-      "lastActive": "2025-08-01T12:00:02.641Z",
+      "lastActive": "2025-08-01T12:00:02.495Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     },
     {
@@ -27,14 +27,14 @@
       "type": "deployment",
       "status": "in-progress",
       "priority": "medium",
-      "timeSpent": "0m",
-      "lastActive": "2025-08-01T12:00:16.128Z",
+      "timeSpent": "55m",
+      "lastActive": "2025-08-01T12:55:33.219Z",
       "description": "Coordinate with Sameer to replicate the existing backend container onto a new server for the Fayiz project."
     }
   ],
   "currentTask": 1754043350823,
-  "totalTimeToday": "4h 5m",
+  "totalTimeToday": "5h 0m",
   "tasksCompleted": 0,
-  "tasksInProgress": 2,
+  "tasksInProgress": 1,
   "tasksPending": 1
 }
