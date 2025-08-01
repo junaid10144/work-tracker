@@ -5,10 +5,10 @@
       "id": 1754026006285,
       "title": "MyFatoorah Integration",
       "type": "frontend",
-      "status": "in-progress",
+      "status": "paused",
       "priority": "high",
-      "timeSpent": "1h 30m",
-      "lastActive": "2025-08-01T07:01:29.831Z",
+      "timeSpent": "2h 20m",
+      "lastActive": "2025-08-01T07:50:00.864Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     },
     {
@@ -22,9 +22,9 @@
       "description": "When admin manually creates a seller in MyFatoorah, show the returned commission and supplier info (e.g., CommissionValue, DepositTerms, etc.) in the seller's dashboard under the Supplier Details section."
     }
   ],
-  "currentTask": 1754026006285,
-  "totalTimeToday": "1h 30m",
+  "currentTask": null,
+  "totalTimeToday": "2h 20m",
   "tasksCompleted": 0,
-  "tasksInProgress": 1,
+  "tasksInProgress": 0,
   "tasksPending": 1
 }
