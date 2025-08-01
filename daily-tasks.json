@@ -7,8 +7,8 @@
       "type": "frontend",
       "status": "in-progress",
       "priority": "high",
-      "timeSpent": "2h 20m",
-      "lastActive": "2025-08-01T10:08:24.318Z",
+      "timeSpent": "4h 05m",
+      "lastActive": "2025-08-01T12:00:02.641Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     },
     {
@@ -25,16 +25,16 @@
       "id": 1754043350823,
       "title": "Set Up Replica Backend Environment with Sameer",
       "type": "deployment",
-      "status": "pending",
+      "status": "in-progress",
       "priority": "medium",
       "timeSpent": "0m",
-      "lastActive": "2025-08-01T10:15:50.823Z",
+      "lastActive": "2025-08-01T12:00:16.128Z",
       "description": "Coordinate with Sameer to replicate the existing backend container onto a new server for the Fayiz project."
     }
   ],
-  "currentTask": 1754026006285,
-  "totalTimeToday": "2h 20m",
+  "currentTask": 1754043350823,
+  "totalTimeToday": "4h 5m",
   "tasksCompleted": 0,
-  "tasksInProgress": 1,
-  "tasksPending": 2
+  "tasksInProgress": 2,
+  "tasksPending": 1
 }
