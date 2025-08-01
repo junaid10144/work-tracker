@@ -1,11 +1,30 @@
 {
   "date": "2025-08-01",
   "tasks": [
-
+    {
+      "id": 1754026006285,
+      "title": "MyFatoorah Integration",
+      "type": "frontend",
+      "status": "pending",
+      "priority": "high",
+      "timeSpent": "0m",
+      "lastActive": "2025-08-01T05:26:46.285Z",
+      "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
+    },
+    {
+      "id": 1754026018805,
+      "title": "Display MyFatoorah Seller Commission Info",
+      "type": "frontend",
+      "status": "pending",
+      "priority": "medium",
+      "timeSpent": "0m",
+      "lastActive": "2025-08-01T05:26:58.805Z",
+      "description": "When admin manually creates a seller in MyFatoorah, show the returned commission and supplier info (e.g., CommissionValue, DepositTerms, etc.) in the seller's dashboard under the Supplier Details section."
+    }
   ],
   "currentTask": null,
-  "totalTimeToday": "0:00:00",
+  "totalTimeToday": "0m",
   "tasksCompleted": 0,
   "tasksInProgress": 0,
-  "tasksPending": 0
+  "tasksPending": 2
 }
