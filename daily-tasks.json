@@ -25,10 +25,10 @@
       "id": 1754289321556,
       "title": "MyFatoorah Integration",
       "type": "frontend",
-      "status": "in-progress",
+      "status": "paused",
       "priority": "high",
       "timeSpent": "1h",
-      "lastActive": "2025-08-04T08:00:08.691Z",
+      "lastActive": "2025-08-04T08:05:18.986Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     },
     {
@@ -40,9 +40,19 @@
       "timeSpent": "30m",
       "lastActive": "2025-08-04T06:00:00.160Z",
       "description": "Meet with PM Rida to discuss updates and future plans for the Modon Express project."
+    },
+    {
+      "id": 1754294634652,
+      "title": "Faayiz Internal Meeting Call",
+      "type": "meeting",
+      "status": "in-progress",
+      "priority": "medium",
+      "timeSpent": "0m",
+      "lastActive": "2025-08-04T08:00:52.270Z",
+      "description": "Internal sync with the Faayiz team."
     }
   ],
-  "currentTask": 1754289321556,
+  "currentTask": 1754294634652,
   "totalTimeToday": "30m",
   "tasksCompleted": 1,
   "tasksInProgress": 1,
