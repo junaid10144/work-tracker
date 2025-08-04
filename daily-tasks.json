@@ -25,16 +25,26 @@
       "id": 1754289321556,
       "title": "MyFatoorah Integration",
       "type": "frontend",
-      "status": "pending",
+      "status": "in-progress",
       "priority": "high",
       "timeSpent": "0m",
-      "lastActive": "2025-08-04T06:35:21.556Z",
+      "lastActive": "2025-08-04T07:00:00.269Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
+    },
+    {
+      "id": 1754289973088,
+      "title": "Modon Express Updates and Plans Meeting",
+      "type": "meeting",
+      "status": "completed",
+      "priority": "medium",
+      "timeSpent": "30m",
+      "lastActive": "2025-08-04T06:00:00.160Z",
+      "description": "Meet with PM Rida to discuss updates and future plans for the Modon Express project."
     }
   ],
-  "currentTask": null,
-  "totalTimeToday": "0m",
-  "tasksCompleted": 0,
-  "tasksInProgress": 0,
-  "tasksPending": 3
+  "currentTask": 1754289321556,
+  "totalTimeToday": "30m",
+  "tasksCompleted": 1,
+  "tasksInProgress": 1,
+  "tasksPending": 2
 }
