@@ -25,10 +25,10 @@
       "id": 1754289321556,
       "title": "MyFatoorah Integration",
       "type": "frontend",
-      "status": "paused",
+      "status": "in-progress",
       "priority": "high",
-      "timeSpent": "1h",
-      "lastActive": "2025-08-04T08:05:18.986Z",
+      "timeSpent": "1h 0m",
+      "lastActive": "2025-08-04T08:00:39.265Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     },
     {
@@ -45,16 +45,16 @@
       "id": 1754294634652,
       "title": "Faayiz Internal Meeting Call",
       "type": "meeting",
-      "status": "in-progress",
+      "status": "completed",
       "priority": "medium",
-      "timeSpent": "0m",
-      "lastActive": "2025-08-04T08:00:52.270Z",
+      "timeSpent": "15m",
+      "lastActive": "2025-08-04T08:16:45.180Z",
       "description": "Internal sync with the Faayiz team."
     }
   ],
-  "currentTask": 1754294634652,
-  "totalTimeToday": "30m",
-  "tasksCompleted": 1,
+  "currentTask": 1754289321556,
+  "totalTimeToday": "1h 45m",
+  "tasksCompleted": 2,
   "tasksInProgress": 1,
   "tasksPending": 2
 }
