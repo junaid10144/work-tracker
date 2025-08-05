@@ -25,16 +25,16 @@
       "id": 1754379881345,
       "title": "MyFatoorah Integration",
       "type": "frontend",
-      "status": "pending",
+      "status": "in-progress",
       "priority": "high",
       "timeSpent": "0m",
-      "lastActive": "2025-08-05T07:44:41.345Z",
+      "lastActive": "2025-08-05T07:45:49.751Z",
       "description": "Integrate MyFatoorah payment gateway on the checkout page so users can make purchases"
     }
   ],
-  "currentTask": null,
+  "currentTask": 1754379881345,
   "totalTimeToday": "0m",
   "tasksCompleted": 0,
-  "tasksInProgress": 0,
-  "tasksPending": 3
+  "tasksInProgress": 1,
+  "tasksPending": 2
 }
